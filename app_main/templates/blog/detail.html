@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block title  %} {{article.title}} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="article-body">
+        <h2 class="text-center">{{post.title}}</h2><br>
+        <h4>{{post.user.first_name}} {{post.user.last_name}}</h4>
+        <div class="image">
+            {% for image in post.files.all %}
+            <a href="{{ image.file.url }}"><img src="{{ image.file.url }}" alt="image" width=200px height=200px></a>
+            {% endfor %}
+        </div><br>
+        <p>{{post.description}}</p>
+        <br>
+        <p>{{post.content}}</p>
+    </div>
+
+    <h2 class="text-center">نظرات</h2>
+    <br>
+    <div class="form-control">
+        <div class="row">
+        <div class="col">
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="ارسال">
+            </form>
+        </div>
+        <div class="col">
+            {% for comment in comments %}
+            <div class="form-control">
+            <h3>{{comment.user}}</h3>
+            <p>{{comment.comment}}</p>
+            </div><br>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+TODO: make the text right to left (RTL)
