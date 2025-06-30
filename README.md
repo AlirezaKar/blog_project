@@ -26,8 +26,8 @@ Follow these steps to get a copy of the project running on your local machine:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/AlirezaKar/weblog.git
-cd weblog
+git clone https://github.com/AlirezaKar/weblog_project.git
+cd weblog_project
 ```
 
 2. Create a virtual environment and activate it:
